@@ -1,7 +1,5 @@
 package pet.store.entity;
 
-import java.util.Set;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -19,7 +17,6 @@ import lombok.ToString;
 public class Employee {
 	@Id  //Tells JPA that this is PK
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  //Tells JPA that Db will assign PK
-	
 	private Long employeeId;
 	private String employeeFirstName;
 	private String employeeLastName;
