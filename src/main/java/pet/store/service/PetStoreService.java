@@ -205,8 +205,7 @@ public class PetStoreService {
 		PetStore petStore = findPetStoreById(petStoreId);
 		return new PetStoreData(petStore);
 	}
-	
-	
+		
 	//deletes store using Id
 	public void deletePetStoreById(Long petStoreId) {
 		PetStore petStore = findPetStoreById(petStoreId);

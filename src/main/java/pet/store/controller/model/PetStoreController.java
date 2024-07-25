@@ -1,9 +1,11 @@
 package pet.store.controller.model;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +19,8 @@ import lombok.extern.slf4j.Slf4j;
 import pet.store.controller.model.PetStoreData.PetStoreCustomer;
 import pet.store.controller.model.PetStoreData.PetStoreEmployee;
 import pet.store.service.PetStoreService;
+
+
 
 @RestController
 @RequestMapping("/pet_store")
@@ -67,6 +71,14 @@ public class PetStoreController {
 	public PetStoreData retrivePetStoreById(@PathVariable Long petStoreId) {
 		log.info("Retrieving pet store by ID={}", petStoreId);
 		return petStoreService.retrivePetStoreById(petStoreId);
+}
+	
+	@DeleteMapping("/{petStoreId}")
+	public Map<String, String> deletePetStoreById(@PathVariable Long petStoreId) {
+		log.info("Deleting pet store with ID={}", petStoreId);
+		petStoreService.deletePetStoreById(petStoreId);
+		
+		return Map.of("message", "Successfully deleted pet store with ID=" + petStoreId);
 	}
 }
 
